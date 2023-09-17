@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figma To HTML</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+</head>
+
+<body class="primary">
+  <div class="d-flex">
+    <aside class="d-flex flex-column p-3">
+      <a href="javascript:void(0)">
+        <img class="logo" src="images/logo.svg" alt="Calopad" width="176px" height="40px" />
+        <p class="font-600 primary">Cards Management System</p>
+      </a>
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="d-flex align-items-center light-secondary font-600">
+            <img src="images/dashboard.svg" class="mr-2" alt="Dashboard" width="20px" height="20px" />
+            Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <img src="images/divider.svg" class="mt-2 w-full" alt="divider">
+          <a href="javascript:void(0)" class="d-flex align-items-center light-secondary my-2">
+            Partners
+            <img src="images/arrow_down.svg" class="ml-1" alt="Submenu" width="20px" height="20px" />
+          </a>
+          <ul class="sub-nav">
+            <li class="sub-nav-item">
+              <a href="javascript:void(0)" class="d-flex align-items-center orange font-600">
+                <img src="images/list.svg" class="mr-2" alt="Partners" width="20px" height="20px" />
+                Partners
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <img src="images/divider.svg" class="mt-2 w-full" alt="divider">
+          <a href="javascript:void(0)" class="d-flex align-items-center light-secondary my-2">
+            Settings
+            <img src="images/arrow_down.svg" class="ml-1" alt="Submenu" width="20px" height="20px" />
+          </a>
+          <ul class="sub-nav">
+            <li class="sub-nav-item">
+              <a href="javascript:void(0)" class="d-flex align-items-center light-secondary font-600">
+                <img src="images/settings.svg" class="mr-2" alt="General" width="20px" height="20px" />
+                General
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="nav-footer">
+        <p class="card-title light-primary"> Michael Breiter </p>
+        <p class="orange py-1 pl-1">ADMIN</p>
+        <div class="d-flex align-items-center">
+          <img src="images/logout.svg" alt="logout" width="20" height="20" class="mr-2" />
+          <span class="light-secondary">Logout</span>
+        </div>
+      </div>
+    </aside>
+    <main class="w-full m-3 pt-3">
+      <header>
+        <a href="javascript:void(0)">
+          <img class="notification-icon" src="images/notification.svg" alt="Notification" width="20px" height="20px" />
+        </a>
+      </header>
+      <div class="content">
+        <div class="title">
+          <h1 class="font-800">Dashboard</h1>
+        </div>
+        <div class="cards-container">
+          <div class="p-3">
+            <div class="card-title font-600">Cards Total / Activated</div>
+            <div class="card-counts light-primary font-500">1'325 / 143</div>
+            <div class="card-variation d-flex">
+              <p class="light-secondary">+2% this week</p>
+              <img src="images/arrow_up.svg" alt="Arrow Up">
+            </div>
+          </div>
+          <div class="p-3">
+            <div class="card-title font-600">Revenue Initial Cards</div>
+            <div class="card-counts light-primary font-500">CHF 13'250</div>
+            <div class="card-variation d-flex">
+              <p class="light-secondary">+17% this week</p>
+              <img src="images/arrow_up.svg" alt="Arrow Up">
+            </div>
+          </div>
+          <div class="p-3">
+            <div class="card-title font-600">Revenue Activations</div>
+            <div class="card-counts light-primary font-500">CHF 7'007</div>
+            <div class="card-variation d-flex">
+              <p class="light-secondary">+2% this week</p>
+              <img src="images/arrow_up.svg" alt="Arrow Up">
+            </div>
+          </div>
+          <div class="p-3">
+            <div class="card-title font-600">Billing Positions</div>
+            <div class="card-counts light-primary font-500">6'945</div>
+            <div class="card-variation d-flex">
+              <p class="light-secondary">+2% this week</p>
+              <img class="red" src="images/arrow_down_red.svg" alt="Arrow Down">
+            </div>
+          </div>
+        </div>
+        <div class="cards-container">
+          <div class="p-3">
+            <div class="card-head d-flex justify-space-between">
+              <div class="card-title font-600">Overview Performance</div>
+              <select>
+                <option>Last 6 Days</option>
+              </select>
+            </div>
+            <div class="card-body pt-3">
+              <canvas id="chart"></canvas>
+            </div>
+          </div>
+          <div class="p-3">
+            <div class="card-head d-flex justify-space-between">
+              <div class="card-title font-600">Top Partners</div>
+              <select>
+                <option>This week</option>
+              </select>
+            </div>
+            <div class="card-body pt-3">
+              <div class="d-flex justify-space-between">
+                <div>
+                  <div class="card-counts light-primary font-500">465</div>
+                  <div class="card-variation d-flex">
+                    <p class="light-secondary">+2% Activations</p>
+                    <img class="red" src="images/arrow_up.svg" alt="Arrow Up">
+                  </div>
+                  <div class="font-size-1 font-600 mt-4">Omnia Physio</div>
+                </div>
+                <div>
+                  <div class="card-counts light-primary font-500">245</div>
+                  <div class="card-variation d-flex">
+                    <p class="light-secondary">+2% Activations</p>
+                    <img class="red" src="images/arrow_up.svg" alt="Arrow Up">
+                  </div>
+                  <div class="font-size-1 font-600 mt-4">Medical Center X</div>
+                </div>
+                <div>
+                  <div class="card-counts light-primary font-500">154</div>
+                  <div class="card-variation d-flex">
+                    <p class="light-secondary">-3% Activations</p>
+                    <img class="red" src="images/arrow_down_red.svg" alt="Arrow Down">
+                  </div>
+                  <div class="font-size-1 font-600 mt-4">Kiosk West</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cards-container">
+          <div class="p-3">
+            <div class="card-head d-flex justify-space-between">
+              <div class="card-title font-600" id="open-invoices">Open Invoices</div>
+              <select>
+                <option>Oldest Entries</option>
+              </select>
+            </div>
+            <div class="card-body pt-2">
+              <table class="w-full" aria-describedby="open-invoices">
+                <thead>
+                  <tr>
+                    <th class="font-size-1 w-50">Affiliate Partner</th>
+                    <th class="font-size-1 pl-3">Accounting Date</th>
+                    <th class="font-size-1">Billable</th>
+                    <th class="font-size-1 text-right">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <a href="javascript:void(0)" class="orange">TCM Jaine</a>
+                    </td>
+                    <td class="pl-3">09.03.2023 11:21</td>
+                    <td class="green">CHF 49</td>
+                    <td class="text-right">
+                      <select>
+                        <option>open</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="javascript:void(0)" class="orange">TCM Jaine</a>
+                    </td>
+                    <td class="pl-3">09.03.2023 11:21</td>
+                    <td class="green">CHF 49</td>
+                    <td class="text-right">
+                      <select>
+                        <option>open</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="javascript:void(0)" class="orange">TCM Jaine</a>
+                    </td>
+                    <td class="pl-3">09.03.2023 11:21</td>
+                    <td class="green">CHF 49</td>
+                    <td class="text-right">
+                      <select>
+                        <option>open</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a href="javascript:void(0)" class="orange">TCM Jaine</a>
+                    </td>
+                    <td class="pl-3">09.03.2023 11:21</td>
+                    <td class="green">CHF 49</td>
+                    <td class="text-right">
+                      <select>
+                        <option>open</option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="mt-1 pagination d-flex justify-right">
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#" class="active">Next</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cards-container">
+          <div class="p-3">
+            <div class="card-head d-flex justify-space-between">
+              <div class="card-title font-600" id="latest-activations">Latest Activations</div>
+              <select>
+                <option>Oldest Entries</option>
+              </select>
+            </div>
+            <div class="card-body pt-2">
+              <table class="w-full" aria-labelledby="latest-activations">
+                <thead>
+                  <tr>
+                    <th class="font-size-1">Affiliate Partner</th>
+                    <th class="font-size-1">Card Type</th>
+                    <th class="font-size-1">Card Nr.</th>
+                    <th class="font-size-1">Date</th>
+                    <th class="font-size-1">Shop Order Nr.</th>
+                    <th class="font-size-1">Shop Status</th>
+                    <th class="font-size-1">Billing Positions</th>
+                    <th class="font-size-1 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>TCM Jaine</td>
+                    <td>
+                      <div class="orange">One</div>
+                    </td>
+                    <td>643OsldfjlaAsflas</td>
+                    <td>18.01.2023</td>
+                    <td>#1522</td>
+                    <td>Done</td>
+                    <td class="green">CHF 49</td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="p-1">
+                        <img src="images/action.svg" alt="action" />
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>TCM Jaine</td>
+                    <td>
+                      <div class="orange">One</div>
+                    </td>
+                    <td>643OsldfjlaAsflas</td>
+                    <td>18.01.2023</td>
+                    <td>#1522</td>
+                    <td>Done</td>
+                    <td class="green">CHF 49</td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="p-1">
+                        <img src="images/action.svg" alt="action" />
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>TCM Jaine</td>
+                    <td>
+                      <div class="orange">One</div>
+                    </td>
+                    <td>643OsldfjlaAsflas</td>
+                    <td>18.01.2023</td>
+                    <td>#1522</td>
+                    <td>Done</td>
+                    <td class="green">CHF 49</td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="p-1">
+                        <img src="images/action.svg" alt="action" />
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>TCM Jaine</td>
+                    <td>
+                      <div class="orange">One</div>
+                    </td>
+                    <td>643OsldfjlaAsflas</td>
+                    <td>18.01.2023</td>
+                    <td>#1522</td>
+                    <td>Done</td>
+                    <td class="green">CHF 49</td>
+                    <td class="text-right">
+                      <a href="javascript:void(0)" class="p-1">
+                        <img src="images/action.svg" alt="action" />
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="mt-1 pagination d-flex justify-right">
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#" class="active">Next</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
